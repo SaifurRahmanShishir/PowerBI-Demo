@@ -28,7 +28,7 @@ install.packages(c("shiny", "bslib", "dplyr", "ggplot2", "readr", "scales"))
 shiny::runApp("shiny_app.R")
 ```
 
-## Before the talk (about 30 minutes, all in the browser)
+## Before the talk (All in the browser)
 
 1. Sign in at app.powerbi.com with your work/school account. Check that **Create › Get data** works and that a semantic model opens in **Edit** mode (some organizations turn web editing off).
 2. **Main report (Parts 2–5):** Create › Get data › Excel workbook › `OutdoorCo_Sales.xlsx` (from OneDrive) › load all 6 tables. In the model view create relationships:

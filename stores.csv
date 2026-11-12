@@ -1,0 +1,13 @@
+StoreID,StoreName,City,State,Region
+S01,Denver Flagship,Denver,CO,Mountain
+S02,Boulder,Boulder,CO,Mountain
+S03,Salt Lake City,Salt Lake City,UT,Mountain
+S04,Phoenix,Phoenix,AZ,Southwest
+S05,Tucson,Tucson,AZ,Southwest
+S06,Albuquerque,Albuquerque,NM,Southwest
+S07,Seattle,Seattle,WA,Pacific
+S08,Portland,Portland,OR,Pacific
+S09,San Diego,San Diego,CA,Pacific
+S10,Austin,Austin,TX,South
+S11,Dallas,Dallas,TX,South
+S12,Chicago,Chicago,IL,Midwest

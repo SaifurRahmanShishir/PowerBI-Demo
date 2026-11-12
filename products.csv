@@ -1,0 +1,26 @@
+ProductID,ProductName,Category,SubCategory,ListPrice,UnitCost
+P001,Trailhead 2P Tent,Camping,Tents,249,136.95
+P002,Basecamp 4P Tent,Camping,Tents,429,235.95
+P003,Ultralight 1P Tent,Camping,Tents,379,197.08
+P004,Summit 20F Bag,Camping,Sleeping Bags,189,94.5
+P005,Valley 40F Bag,Camping,Sleeping Bags,99,47.52
+P006,Canister Stove,Camping,Stoves,59,26.55
+P007,Two-Burner Camp Stove,Camping,Stoves,139,69.5
+P008,Ridge Mid Boot,Hiking,Boots,169,84.5
+P009,Trail Runner Shoe,Hiking,Boots,139,66.72
+P010,Daypack 22L,Hiking,Backpacks,89,40.05
+P011,Trek 55L Pack,Hiking,Backpacks,229,119.08
+P012,Carbon Trekking Poles,Hiking,Trekking Poles,119,53.55
+P013,Rain Shell Jacket,Apparel,Jackets,159,66.78
+P014,Insulated Puffer,Apparel,Jackets,219,96.36
+P015,Merino Base Top,Apparel,Base Layers,79,31.6
+P016,Merino Base Bottom,Apparel,Base Layers,69,27.6
+P017,Fleece Beanie,Apparel,Hats & Gloves,25,8.75
+P018,Touchscreen Gloves,Apparel,Hats & Gloves,35,13.3
+P019,All-Round Harness,Climbing,Harnesses,69,34.5
+P020,Crag Climbing Shoe,Climbing,Shoes,129,67.08
+P021,Dynamic Rope 60m,Climbing,Ropes,199,109.45
+P022,Insulated Bottle 32oz,Water,Hydration,39,13.65
+P023,Hydration Bladder 3L,Water,Hydration,45,18.0
+P024,Touring Kayak Paddle,Water,Paddling,149,81.95
+P025,Inflatable SUP Board,Water,Paddling,599,359.4

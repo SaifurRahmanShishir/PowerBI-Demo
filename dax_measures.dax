@@ -1,0 +1,73 @@
+// ============================================================
+// OutdoorCo - DAX measures for the demo
+// Paste each one via  Home > New measure  (web model editor or Desktop)
+// Model: Sales -> Products, Sales -> Stores -> Regions,
+//        Sales[OrderDate] -> Calendar[Date],
+//        Targets[MonthStart] -> Calendar[Date], Targets[Region] -> Regions[Region]
+// Mark 'Calendar' as the date table (Table tools > Mark as date table)
+// ============================================================
+
+// ---------- 1. Basics (the "summarise()" of DAX) ----------
+Revenue = SUM ( Sales[Revenue] )
+
+Total Cost = SUM ( Sales[Cost] )
+
+Gross Margin % = DIVIDE ( [Revenue] - [Total Cost], [Revenue] )
+
+Orders = DISTINCTCOUNT ( Sales[OrderID] )
+
+Avg Order Value = DIVIDE ( [Revenue], [Orders] )
+
+
+// ---------- 2. CALCULATE = "filter() inside a measure" ----------
+Online Revenue = CALCULATE ( [Revenue], Sales[Channel] = "Online" )
+
+Online Share % = DIVIDE ( [Online Revenue], [Revenue] )
+
+
+// ---------- 3. Time intelligence (needs the Calendar table) ----------
+Revenue LY = CALCULATE ( [Revenue], SAMEPERIODLASTYEAR ( 'Calendar'[Date] ) )
+
+YoY % = DIVIDE ( [Revenue] - [Revenue LY], [Revenue LY] )
+
+Revenue YTD = TOTALYTD ( [Revenue], 'Calendar'[Date] )
+
+
+// ---------- 4. Targets (second fact table, shared dimensions) ----------
+Target = SUM ( Targets[RevenueTarget] )
+
+vs Target % = DIVIDE ( [Revenue] - [Target], [Target] )
+
+// Use in conditional formatting: green if on target, red if behind
+Target Status Color = IF ( [vs Target %] >= 0, "#1A7F37", "#CF222E" )
+
+
+// ---------- 5. Ranking ----------
+Product Rank = RANKX ( ALL ( Products[ProductName] ), [Revenue] )
+
+
+// ============================================================
+// OPTIONAL: build the Calendar with DAX instead of importing it
+// Home > New table
+// ============================================================
+// Calendar =
+// ADDCOLUMNS (
+//     CALENDAR ( DATE ( 2024, 1, 1 ), DATE ( 2026, 12, 31 ) ),
+//     "Year", YEAR ( [Date] ),
+//     "Quarter", "Q" & QUARTER ( [Date] ),
+//     "MonthNum", MONTH ( [Date] ),
+//     "Month", FORMAT ( [Date], "MMM" ),
+//     "YearMonth", FORMAT ( [Date], "YYYY-MM" )
+// )
+
+
+// ============================================================
+// DAX QUERY VIEW (web): test measures like a SQL/dplyr query
+// Workspace > semantic model ... > Write DAX queries
+// ============================================================
+// Revenue vs target by region for August 2026:
+// EVALUATE
+// CALCULATETABLE (
+//     SUMMARIZECOLUMNS ( Regions[Region], "Revenue", [Revenue], "Target", [Target], "vs Target %", [vs Target %] ),
+//     'Calendar'[YearMonth] = "2026-08"
+// )
